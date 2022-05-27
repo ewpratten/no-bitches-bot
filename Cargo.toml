@@ -1,17 +1,20 @@
 [package]
-name = "<crate_name>"
+name = "no-bitches-bot"
+publish = false
 version = "0.1.0"
 authors = ["Evan Pratten <ewpratten@gmail.com>"]
 edition = "2021"
-description = "<description>"
-documentation = "https://docs.rs/<crate_name>"
-readme = "README.md"
-homepage = "https://github.com/ewpratten/<repo_name>"
-repository = "https://github.com/ewpratten/<repo_name>"
-license = "GPL-3.0"
-keywords = []
-categories = []
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
+imgur2018 = "0.1.0"
+serenity = { version = "0.11.2", default-features = false, features = [
+    "client",
+    "gateway",
+    "rustls_backend",
+    "model"
+] }
+tokio = { version = "1.0", features = ["macros", "rt-multi-thread", "process"] }
+log = "0.4.17"
+fern = "0.6.1"
+chrono = "0.4.19"
