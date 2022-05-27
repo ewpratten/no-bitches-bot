@@ -33,3 +33,6 @@ I'm essentially pulling the chin to sit at `1/4` and `3/4` of the width of the i
 
 ![A horrible usage explanation](assets/bot-screenshot.png)
 
+---
+
+Ok. have a nice day.
