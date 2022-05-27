@@ -13,3 +13,12 @@ This repository contains a Discord bot that will take any image containing a fac
 
 ### Forehead Transform
 
+## FAQ
+
+### Q: Can I host this myself?
+
+**A:** Yep. Please see my `docker-compose.yml`. I'll handle everything you need. Just be sure to set `$DISCORD_TOKEN` to your bot's token. (aka: make your own bot at [discord.com/developers](https://discord.com/developers/))
+
+### Q: Why does this look like it was written in 25 minutes?
+
+**A:** Yes.
