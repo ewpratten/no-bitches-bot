@@ -7,6 +7,8 @@
 
 This repository contains a Discord bot that will take any image containing a face and mutilate it until it reasonably resembles a [Megamind meme](https://knowyourmeme.com/memes/no-bitches).
 
+*This project was made for [Meme Appreciation Month](https://va3zza.com/events/meme-month-2022/)*
+
 ## Bot Architecture
 
 ![Bot design diagram](assets/arch.png)
