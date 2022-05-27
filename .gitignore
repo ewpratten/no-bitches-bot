@@ -18,3 +18,4 @@ Cargo.lock
 #Cargo.lock
 
 /test.png
+/.env

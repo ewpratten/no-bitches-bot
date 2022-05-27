@@ -1,0 +1,7 @@
+/target/debug
+/target/release
+/target/x86_64-unknown-linux-musl/release/.fingerprint
+/target/x86_64-unknown-linux-musl/release/build
+/target/x86_64-unknown-linux-musl/release/deps
+/target/x86_64-unknown-linux-musl/release/examples
+/target/x86_64-unknown-linux-musl/release/incremental

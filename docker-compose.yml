@@ -1,0 +1,8 @@
+version: "3"
+services:
+  bot:
+    image: ewpratten/no-bitches-bot
+    environment:
+      - DISCORD_TOKEN=${DISCORD_TOKEN}
+      - LD_LIBRARY_PATH=/usr/local/lib
+    command: /app

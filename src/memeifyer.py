@@ -50,6 +50,11 @@ def main() -> int:
     M = cv2.getPerspectiveTransform(face_points, face_point_ends)
     warped = cv2.warpPerspective(image, M, (end_size[1], end_size[0]))
 
+    # Add a blue tint to the image
+    blue = np.zeros(warped.shape, dtype=warped.dtype)
+    blue[:] = (255, 0, 0)
+    warped = cv2.addWeighted(warped, 0.5, blue, 0.5, 0)
+
     # Add text to the top center
     cv2.putText(warped, "NO BITCHES?", (100, 100),
                 cv2.FONT_HERSHEY_SIMPLEX, 3, (255, 255, 255), 15, cv2.LINE_AA)
