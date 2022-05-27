@@ -4,6 +4,8 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt update -y
 RUN apt install python3 python3-pip python3-opencv -y
 
+RUN apt install wget -y
+
 COPY ./target/x86_64-unknown-linux-musl/release/no-bitches-bot /app
 RUN file /app
 RUN chmod +x /app
@@ -14,7 +16,6 @@ COPY ./datasets /datasets
 COPY ./requirements.txt /requirements.txt
 
 RUN python3 -m pip install -r /requirements.txt
-RUN apt install wget -y
 # RUN apt install libssl-dev libssl1.1 wget mlocate -y
 # # RUN locate libssl
 # # RUN ln -s /usr/local/lib/libssl.so.3 /usr/lib/libssl.so.3

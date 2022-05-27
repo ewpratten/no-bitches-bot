@@ -14,6 +14,7 @@ def main() -> int:
     ap.add_argument("--harr-file", default="./datasets/haarcascade_frontalface_alt.xml",
                     help="Path to the desired output file location")
     args = ap.parse_args()
+    print(f"Attempting to convert {args.input} to {args.output}")
 
     # Load the input image
     image = cv2.imread(args.input)
@@ -50,9 +51,10 @@ def main() -> int:
     M = cv2.getPerspectiveTransform(face_points, face_point_ends)
     warped = cv2.warpPerspective(image, M, (end_size[1], end_size[0]))
 
+
     # Add a blue tint to the image
     blue = np.zeros(warped.shape, dtype=warped.dtype)
-    blue[:] = (255, 0, 0)
+    blue[:] = (145, 62, 33)
     warped = cv2.addWeighted(warped, 0.5, blue, 0.5, 0)
 
     # Add text to the top center
