@@ -1,4 +1,7 @@
+use std::io::Cursor;
+
 use imgur2018::imgur_upload;
+use no_bitches::{build_megamind_meme, image::ImageFormat};
 use serenity::{
     async_trait,
     client::{Context, EventHandler},
@@ -111,6 +114,28 @@ impl EventHandler for Handler {
             .await
             .unwrap();
         }
+        // Allow meme creation
+        else if msg.content.starts_with("?nb-create") {
+            // Strip the command from the message
+            let message = msg.content.replace("?nb-create", "");
+
+            // Build our new image
+            let image = build_megamind_meme(&message.replace("\\n", "\n").to_uppercase(), None);
+
+            // Upload the image
+            let mut image_data = Cursor::new(Vec::new());
+            image
+                .write_to(&mut image_data, ImageFormat::Png)
+                .expect("Failed to write image");
+            let new_image_url = imgur_upload("725631460b74631", image_data.into_inner())
+                .await
+                .expect("Failed to upload image");
+
+            // Reply with the new image
+            msg.reply_ping(&ctx.http, new_image_url.to_string())
+                .await
+                .unwrap();
+        }
     }
 
     async fn ready(&self, ctx: Context, ready: Ready) {
@@ -137,9 +162,8 @@ async fn main() {
                 record.level(),
                 message
             ))
-        }).filter(|meta| {
-            meta.target().starts_with("no_bitches_bot") 
         })
+        .filter(|meta| meta.target().starts_with("no_bitches_bot"))
         .level(log::LevelFilter::Debug)
         .chain(std::io::stdout())
         .apply()
