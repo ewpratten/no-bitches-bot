@@ -8,7 +8,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 imgur2018 = "^0.1.1"
-serenity = { version = "0.11.2", default-features = false, features = [
+serenity = { version = "0.12.0", default-features = false, features = [
     "client",
     "gateway",
     "rustls_backend",
